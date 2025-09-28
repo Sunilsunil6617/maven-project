@@ -75,6 +75,30 @@ pipeline {
             }
 
         }
+
+        stage ('deploy to prod') {
+            when {
+                expression {
+                    params.ENV == 'prod'
+                }
+                beforeAgent true
+            }
+
+            steps {
+                input {
+                    message 'Wanna deploy anyway?'
+                }
+
+                dir("/var/www/html") {
+                    unstash "maven-build"
+                }
+                bat """
+                cd /var/www/html/
+                jar -xvf webapp.war
+                """
+            }
+
+        }
     }
 
 
