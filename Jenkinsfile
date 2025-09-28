@@ -85,7 +85,7 @@ pipeline {
             }
 
             steps {
-                timeout(time: 5 unit:'DAYS') {
+                timeout(time: 5, unit:'DAYS') {
                    input message: 'Wanna deploy anyway?'
                 }
 
