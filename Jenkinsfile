@@ -86,7 +86,7 @@ pipeline {
 
             steps {
                 input {
-                    message 'Wanna deploy anyway?'
+                    message: 'Wanna deploy anyway?'
                 }
 
                 dir("/var/www/html") {
