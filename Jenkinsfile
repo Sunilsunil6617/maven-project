@@ -85,8 +85,8 @@ pipeline {
             }
 
             steps {
-                input {
-                    message: 'Wanna deploy anyway?'
+                timeout(time: 5 unit:'DAYS') {
+                   input message: 'Wanna deploy anyway?'
                 }
 
                 dir("/var/www/html") {
