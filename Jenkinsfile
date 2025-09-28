@@ -6,11 +6,11 @@ pipeline {
     }
 
     environment {
-        name = "Sunil"
+        NAME = "Sunil"
     }
 
     parameters {
-        string defaultValue: 'Sunil', description: 'Tell who are you?', name: 'Username'
+        string defaultValue: 'Sunil', description: 'Tell who are you?', name: 'LASTNAME'
     }
 
 
@@ -18,9 +18,9 @@ pipeline {
         stage ("Build") {
             steps {
                 bat 'mvn clean package'
-                bat 'echo %name%'
-                echo "Hello ${env.name}"
-                echo "Hello ${params.username}"
+                bat 'echo %NAME%'
+                echo "Hello ${env.NAME}"
+                echo "Hello ${params.LASTNAME}"
             }
 
             post {
