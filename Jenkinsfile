@@ -13,7 +13,7 @@ pipeline {
         stage ("Build") {
             steps {
                 bat 'mvn clean package'
-                echo %name%
+                echo "Hello %name%"
             }
 
             post {
