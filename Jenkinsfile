@@ -9,12 +9,18 @@ pipeline {
         name = "Sunil"
     }
 
+    parameters {
+        string defaultValue: 'Sunil', description: 'Tell who are you?', name: 'Username'
+    }
+
+
     stages {
         stage ("Build") {
             steps {
                 bat 'mvn clean package'
                 bat 'echo %name%'
                 echo "Hello ${env.name}"
+                echo "Hello ${params.username}"
             }
 
             post {
